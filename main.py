@@ -16,7 +16,7 @@ def main():
     clock = pygame.time.Clock()
 
     renderer = Renderer(screen)
-    renderer.setShader(vertex_shader, fragment_shader)
+    renderer.setShader(exploding_vertex_shader, fragment_shader)
     # x, y, z, U, V, normal(x, y, z)
     
     obj = Obj("Models/H/casita.obj")
@@ -31,7 +31,7 @@ def main():
                 objinfo.extend(vertex + uv + normal)
     model = Model(objinfo)
     model.loadTexture("Models/H/casita.bmp")
-    model.position.z = -10
+    model.position.z = -7
     model.position.y = 0
     model.rotation.x = 0
     model.scale = glm.vec3(0.20, 0.20, 0.20)

@@ -20,6 +20,7 @@ class Renderer(object):
             1000.0  #Far Plane
         )
         self.elapsedTime = 0.0
+        self.fatness = 0.3
 
         glEnable(GL_DEPTH_TEST)
         glViewport(0, 0, self.width, self.height)
