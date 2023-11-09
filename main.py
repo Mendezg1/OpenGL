@@ -16,7 +16,19 @@ def main():
     clock = pygame.time.Clock()
 
     renderer = Renderer(screen)
-    renderer.setShader(exploding_vertex_shader, fragment_shader)
+
+    """
+    Los shaders implementados son 4, 2 vertex y 2 fragment.
+    Vertex:
+    - exploding_vertex_shader
+    - bug_shader
+
+    Fragment:
+    - coloring_wave_shader
+    - water_texture_shader
+    """
+
+    renderer.setShader(bug_shader, fragment_shader)
     # x, y, z, U, V, normal(x, y, z)
     
     obj = Obj("Models/H/casita.obj")
