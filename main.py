@@ -32,11 +32,6 @@ def main():
     clock = pygame.time.Clock()
 
     renderer = Renderer(screen)
-<<<<<<< Updated upstream
-    renderer.setShader(vertex_shader, fragment_shader)
-    # x, y, z, U, V, normal(x, y, z)
-    
-=======
 
     active_f = fragment_shader
     active_v = vertex_shader
@@ -103,7 +98,6 @@ def main():
     perrito = Model(objinfo)
     perritotext = "Models/DOG/Perrito.jpg"
     #Casa
->>>>>>> Stashed changes
     obj = Obj("Models/H/casita.obj")
     objinfo = []
     for face in obj.faces:
@@ -114,19 +108,11 @@ def main():
                 uv = [uv[0], uv[1]]
                 normal = obj.normals[normals - 1]
                 objinfo.extend(vertex + uv + normal)
-<<<<<<< Updated upstream
-    model = Model(objinfo)
-    model.loadTexture("Models/H/casita.bmp")
-    model.position.z = -10
-    model.position.y = 0
-    model.rotation.x = 0
-=======
     casa = Model(objinfo)
     casatext = "Models/H/casita.bmp"
     model = casa
     model.loadTexture(casatext)
     model.position = glm.vec3(0,0,-6)
->>>>>>> Stashed changes
     model.scale = glm.vec3(0.20, 0.20, 0.20)
     renderer.scene.append(model)
     renderer.center = model.position

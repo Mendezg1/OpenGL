@@ -21,11 +21,8 @@ class Renderer(object):
         )
         self.viewMatrix = self.getViewMatrix()
         self.elapsedTime = 0.0
-<<<<<<< Updated upstream
-=======
         self.center = glm.vec3(0,0,0)
 
->>>>>>> Stashed changes
 
         glEnable(GL_DEPTH_TEST)
         glViewport(0, 0, self.width, self.height)

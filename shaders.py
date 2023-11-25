@@ -21,8 +21,6 @@ vertex_shader = """
     }
 """
 
-<<<<<<< Updated upstream
-=======
 bug_shader = """
 #version 450 core
 layout (location = 0) in vec3 position;
@@ -160,7 +158,6 @@ water_texture_shader = """
 """
 
 
->>>>>>> Stashed changes
 fragment_shader = """
     #version 450 core
     in vec4 outColor;
