@@ -5,10 +5,14 @@ from numpy import array, float32
 
 
 class Model(object):
-    def __init__(self, data):
+    def __init__(self, data, z = 1):
         self.vertexBuffer = array(data, dtype=float32)
         self.VBO = glGenBuffers(1)  # Vertex Buffer Object
         self.VAO = glGenVertexArrays(1)  # Vertex Array Object
+        self.ytop = 3
+        self.ybot = -3
+        self.zin = 1
+        self.zout = 12
         self.position = glm.vec3(0.0, 0.0, 0.0)
         self.rotation = glm.vec3(0.0, 0.0, 0.0)
         self.scale = glm.vec3(1.0, 1.0, 1.0)

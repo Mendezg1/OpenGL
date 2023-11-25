@@ -19,7 +19,13 @@ class Renderer(object):
             0.1,  #Near Plane
             1000.0  #Far Plane
         )
+        self.viewMatrix = self.getViewMatrix()
         self.elapsedTime = 0.0
+<<<<<<< Updated upstream
+=======
+        self.center = glm.vec3(0,0,0)
+
+>>>>>>> Stashed changes
 
         glEnable(GL_DEPTH_TEST)
         glViewport(0, 0, self.width, self.height)
@@ -43,6 +49,45 @@ class Renderer(object):
                 compileShader(fragment_shader, GL_FRAGMENT_SHADER)
             )
 
+    def setDarkenEffect(self, darken_effect):
+        if self.activeShader is not None:
+            glUseProgram(self.activeShader)
+            #Set uniform
+            glUniform1i(
+                glGetUniformLocation(self.activeShader, "darken_effect"), 
+                int(darken_effect)
+                )
+    
+    def setRGB(self, setter, id):
+        if self.activeShader is not None:
+            glUseProgram(self.activeShader)
+            #Set uniform
+
+            if id == 1:
+                glUniform1f(
+                    glGetUniformLocation(self.activeShader, "r"), 
+                    setter
+                    )
+            
+            if id == 2:
+                glUniform1f(
+                    glGetUniformLocation(self.activeShader, "g"), 
+                    setter
+                    )
+                
+            if id == 3:
+                glUniform1f(
+                    glGetUniformLocation(self.activeShader, "b"), 
+                    setter
+                    )
+    def updateViewMatrix(self):
+        #self.viewMatrix = self.getViewMatrix()
+        self.viewMatrix = glm.lookAt(
+            self.cameraPosition,
+            self.center,
+            glm.vec3(0.0, 1.0, 0.0)
+        )
+
     def render(self):
         glClearColor(*self.clearColor)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
@@ -54,7 +99,7 @@ class Renderer(object):
                 glGetUniformLocation(self.activeShader, "viewMatrix"),
                 1,
                 GL_FALSE,
-                glm.value_ptr(self.getViewMatrix())
+                glm.value_ptr(self.viewMatrix)
             )
             glUniformMatrix4fv(
                 glGetUniformLocation(self.activeShader, "projectionMatrix"),
